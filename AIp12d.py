@@ -93,11 +93,9 @@ app = Flask(__name__)  # __name__ 代表目前執行的模組
 
 ###=== (5.3) LINE介面密碼 ===### (參考3.3)
 ##== (1) Channel Access Token
-#line_bot_api = LineBotApi("Nr6mCIsNGslpKJagqwGXYLetpQx0UF2bfmvDAupvFIMmZ/ntSDWrVcRAPOI+OUeklrEWYaU96foNY0rOD+4wXNNPkvAKVGdFbXkcu3r9fblG+zBFT7dx4wjhXksPINOC4G3q6XffuRn/WDIJXoXNEQdB04t89/1O/w1cDnyilFU=")  #-- YOUR_CHANNEL_ACCESS_TOKEN
-line_bot_api = LineBotApi("x2lSedEnGyeBguhChU9UNawYldzTjzA0wJ2iF8TF6fYkmQhxJ1ENG21BGdurIt9qlZOETfOQPqBHJt5mvCRe3vxyoxJHyoiWYC6+yzqfeT6sGEbYF72+T0QzW8sC7RAYKzzuuE/h2UriM/sVVbda3QdB04t89/1O/w1cDnyilFU=")  #-- YOUR_CHANNEL_ACCESS_TOKEN
+line_bot_api = LineBotApi("Nr6mCIsNGslpKJagqwGXYLetpQx0UF2bfmvDAupvFIMmZ/ntSDWrVcRAPOI+OUeklrEWYaU96foNY0rOD+4wXNNPkvAKVGdFbXkcu3r9fblG+zBFT7dx4wjhXksPINOC4G3q6XffuRn/WDIJXoXNEQdB04t89/1O/w1cDnyilFU=")  #-- YOUR_CHANNEL_ACCESS_TOKEN
 ##== (2) Channel Secret
-#andler = WebhookHandler("48f6b1096e13a1d04269785c75363a8c")  #-- YOUR_CHANNEL_SECRET
-andler = WebhookHandler("6a59d6e49a5f926cf5a3a3a56e34adc0")  #-- YOUR_CHANNEL_SECRET
+handler = WebhookHandler("48f6b1096e13a1d04269785c75363a8c")  #-- YOUR_CHANNEL_SECRET
 
 ###=== (5.4) 監聽來自 /callback 的 Post Request  ===###
 @app.route("/callback", methods=['POST']) 
@@ -120,7 +118,7 @@ def callback():
 ###=== (5.5) 處理訊息  ===###
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    global Xactual
+    global Money
     print(event)
     if event.message.id == "100001":
         return
@@ -129,9 +127,14 @@ def handle_message(event):
     if (text=="Hi"):      reply_text = "Hello"
     elif(text=="機器人"):  reply_text = "有！我是機器人，在喔！"
     elif(text=="你好"):    reply_text = "你好啊..."
+    elif(test=="早餐"):    reply_text = "早餐花了多少錢？"
+    elif(test=="午餐"):    reply_test = "午餐花了多少錢？"
+    elif(test=="晚餐"):    reply_test = "晚餐花了多少錢？"
     elif(text.upper()=="H"):    
-        reply_text = "關鍵字說明：(1)'介紹'--說明AB遊戲。(2)'舉例'--隨機產生X四位數字。(3)'變量'--顯示目前X四位數字。(4)'解題'--說明解題過程。(5)四位相異數字--出題。(0)其他關鍵字--Hi,你好,機器人"
+ #       reply_text = "關鍵字說明：(1)'介紹'--說明AB遊戲。(2)'舉例'--隨機產生X四位數字。(3)'變量'--顯示目前X四位數字。(4)'解題'--說明解題過程。(5)四位相異數字--出題。(0)其他關鍵字--Hi,你好,機器人"
+         reply_text = "請問你要紀錄哪筆花費？（早餐、午餐、晚餐）"
     elif(text=="介紹"):    reply_text = openF1
+    '''
     elif(text=="舉例"):    
         print(">>>>>>>>>> 舉例1")
         Xactual = np.random.choice(range(10),4,replace=False)
@@ -165,16 +168,23 @@ def handle_message(event):
         print(">>>>>>>>>> 解題5: answerF = ",answerF)   
         reply_text = answerF
         # reply_text = "".join(["for X=",''.join(map(str,Xactual))])
+        '''
     else:  # 如果非以上的選項，就會學你說話
         print(">>>>>>>>>> 出題1: text = ",text)
         try:
+            V = int(test)
+            money = money + V
+            reply_text = "".join(["好的花費已紀錄：",text])
+            '''
             V = int(text)
             Xactual = list(map(int, list(text)))
             print(">>>>>>>>>> 出題2: Xactual = ",text)
             reply_text = "".join(["設定 X=",text])
+            '''
         except ValueError:
-            Xstr = ''.join(map(str,Xactual))
-            reply_text = "".join([text, "。 跟你說，現在的 X=",Xstr,"你可以試著'解題'看看..."]) 
+ #           Xstr = ''.join(map(str,Xactual))
+#            reply_text = "".join([text, "。 跟你說，現在的 X=",Xstr,"你可以試著'解題'看看..."]) 
+            reply_text = "請問你要紀錄哪筆花費？（早餐、午餐、晚餐）"
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
 
