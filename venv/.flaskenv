@@ -1,1 +1,0 @@
-FLASK_APP=AIp12c.py
