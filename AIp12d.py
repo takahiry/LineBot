@@ -128,12 +128,8 @@ def handle_message(event):
     elif(text=="機器人"):  reply_text = "有！我是機器人，在喔！"
     elif(text=="你好"):    reply_text = "你好啊..."
     elif(text.upper()=="H"):    
-        reply_text = "我能幫你記帳！請回覆要紀錄的內容（如早餐、午餐、晚餐等）"
-    elif(text=="介紹"):    reply_text = "我能幫你記帳！請回覆要紀錄的內容（如早餐、午餐、晚餐等）"
-    elif(text=="早餐"):    reply_text = "好的，請問早餐花費多少錢？"
-    elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
-    elif(text=="晚餐"):    reply_text = "好的，請問晚餐花費多少錢？"
-    '''
+        reply_text = "關鍵字說明：(1)'介紹'--說明AB遊戲。(2)'舉例'--隨機產生X四位數字。(3)'變量'--顯示目前X四位數字。(4)'解題'--說明解題過程。(5)四位相異數字--出題。(0)其他關鍵字--Hi,你好,機器人"
+    elif(text=="介紹"):    reply_text = openF1
     elif(text=="舉例"):    
         print(">>>>>>>>>> 舉例1")
         Xactual = np.random.choice(range(10),4,replace=False)
@@ -167,17 +163,16 @@ def handle_message(event):
         print(">>>>>>>>>> 解題5: answerF = ",answerF)   
         reply_text = answerF
         # reply_text = "".join(["for X=",''.join(map(str,Xactual))])
-    '''
     else:  # 如果非以上的選項，就會學你說話
-#        print(">>>>>>>>>> 出題1: text = ",text)
-#        try:
-#            V = int(text)
-#            Xactual = list(map(int, list(text)))
-#            print(">>>>>>>>>> 出題2: Xactual = ",text)
-#            reply_text = "".join(["設定 X=",text])
-#      except ValueError:
-#           Xstr = ''.join(map(str,Xactual))
-        reply_text = "".join([text, "沒有該功能，輸入“H”可查看我能做什麼"]) 
+        print(">>>>>>>>>> 出題1: text = ",text)
+        try:
+            V = int(text)
+            Xactual = list(map(int, list(text)))
+            print(">>>>>>>>>> 出題2: Xactual = ",text)
+            reply_text = "".join(["設定 X=",text])
+        except ValueError:
+            Xstr = ''.join(map(str,Xactual))
+            reply_text = "".join([text, "。 跟你說，現在的 X=",Xstr,"你可以試著'解題'看看..."]) 
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
 
