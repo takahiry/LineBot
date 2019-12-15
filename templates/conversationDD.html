@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conversation Page</title>
+ </head>
+<body>
+    <div class="saying">  {{ sayF }}  </div> 
+    <div class="querying">  
+        <form method='get' action="{{ url_for('interact') }}"> 
+            <p>  
+                <input type='text' name='dd' size="6" background-color="888888"/> 
+            </p>
+            <p>  <button type='submit'>送出</button> </p>    
+        </form>
+            
+    </div> 
+</body>
+</html>

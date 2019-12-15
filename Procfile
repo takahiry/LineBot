@@ -1,1 +1,1 @@
-web: python app.py
+web: gunicorn AIp12d:app 

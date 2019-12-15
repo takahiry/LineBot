@@ -1,2 +1,5 @@
-line-bot-sdk
 flask
+line-bot-sdk
+numpy
+pandas
+gunicorn
