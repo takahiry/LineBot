@@ -40,6 +40,23 @@ from linebot import ( LineBotApi, WebhookHandler )
 from linebot.exceptions import( InvalidSignatureError )
 from linebot.models import *    
 from flask import Flask, request, abort #---------- 下述是加入 ABgame
+
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        pass
+ 
+    try:
+        import unicodedata
+        unicodedata.numeric(s)
+        return True
+    except (TypeError, ValueError):
+        pass
+ 
+    return False
+
 '''
 from flask import url_for, redirect, render_template, Markup
 import numpy as np
@@ -120,6 +137,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 #   global Xactual
+    global money 
     print(event)
     if event.message.id == "100001":
         return
@@ -130,12 +148,17 @@ def handle_message(event):
     elif(text=="你好"):    reply_text = "你好啊..."
     elif(text.upper()=="H"):    
         reply_text = "我能幫你記帳！請回覆要紀錄的內容（如早餐、午餐、晚餐等）"
-    elif(text=="介紹"):    reply_text = "我能幫你記帳！請回覆要紀錄的內容（如早餐、午餐、晚餐等）"
+    elif(text=="介紹"):    reply_text = "我能幫你記帳！請回覆要紀錄的內容（如早餐、午餐、晚餐等）或回覆“我花了多少錢”查看總花費！"
     elif(text=="早餐"):    reply_text = "好的，請問早餐花費多少錢？"
     elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
     elif(text=="晚餐"):    reply_text = "好的，請問晚餐花費多少錢？"
+    elif(test=="我花了多少錢") reply_text = "".join(["你花了 ",money]) 
+    elif(is_number(test)): 
+        money = moeny + int(test)
+        reply_text = "花費已紀錄"
+
     else:  # 如果非以上的選項，就會學你說話
-        reply_text = "".join([text, "沒有該功能，輸入“H”可查看我能做什麼"]) 
+        reply_text = "".join([text, "，沒有該功能，輸入“H”可查看我能做什麼"]) 
     '''
     elif(text=="舉例"):    
         print(">>>>>>>>>> 舉例1")
