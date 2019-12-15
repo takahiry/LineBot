@@ -137,7 +137,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 #   global Xactual
-    global money 
+    global money = 0 
     print(event)
     if event.message.id == "100001":
         return
@@ -147,7 +147,7 @@ def handle_message(event):
     elif(text=="機器人"):  reply_text = "有！我是機器人，在喔！"
     elif(text=="你好"):    reply_text = "你好啊..."
     elif(text.upper()=="H"):    
-        reply_text = "我能幫你記帳！請回覆要紀錄的內容（如早餐、午餐、晚餐等）"
+        reply_text = "我能幫你記帳！請回覆要紀錄的內容（如早餐、午餐、晚餐等）或回覆“我花了多少錢”查看總花費！"
     elif(text=="介紹"):    reply_text = "我能幫你記帳！請回覆要紀錄的內容（如早餐、午餐、晚餐等）或回覆“我花了多少錢”查看總花費！"
     elif(text=="早餐"):    reply_text = "好的，請問早餐花費多少錢？"
     elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
