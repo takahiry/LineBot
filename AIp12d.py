@@ -94,7 +94,7 @@ app = Flask(__name__)  # __name__ 代表目前執行的模組
 ###=== (5.3) LINE介面密碼 ===### (參考3.3)
 ##== (1) Channel Access Token
 #line_bot_api = LineBotApi("Nr6mCIsNGslpKJagqwGXYLetpQx0UF2bfmvDAupvFIMmZ/ntSDWrVcRAPOI+OUeklrEWYaU96foNY0rOD+4wXNNPkvAKVGdFbXkcu3r9fblG+zBFT7dx4wjhXksPINOC4G3q6XffuRn/WDIJXoXNEQdB04t89/1O/w1cDnyilFU=")  #-- YOUR_CHANNEL_ACCESS_TOKEN
-line_bot_api = LineBotApi("MMOexKRoVrV6xfAA97ecF2ahvY9j2/48fi0FGoJbh0YRt/FQ6QWu0I++vWwx4AvKlZOETfOQPqBHJt5mvCRe3vxyoxJHyoiWYC6+yzqfeT6P428WojVPdFs3LDPpEsZjvukE2I2BOybNtCD3M/l7DwdB04t89/1O/w1cDnyilFU=")  #-- YOUR_CHANNEL_ACCESS_TOKEN
+line_bot_api = LineBotApi("x2lSedEnGyeBguhChU9UNawYldzTjzA0wJ2iF8TF6fYkmQhxJ1ENG21BGdurIt9qlZOETfOQPqBHJt5mvCRe3vxyoxJHyoiWYC6+yzqfeT6sGEbYF72+T0QzW8sC7RAYKzzuuE/h2UriM/sVVbda3QdB04t89/1O/w1cDnyilFU=")  #-- YOUR_CHANNEL_ACCESS_TOKEN
 ##== (2) Channel Secret
 #andler = WebhookHandler("48f6b1096e13a1d04269785c75363a8c")  #-- YOUR_CHANNEL_SECRET
 andler = WebhookHandler("6a59d6e49a5f926cf5a3a3a56e34adc0")  #-- YOUR_CHANNEL_SECRET
