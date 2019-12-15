@@ -169,15 +169,15 @@ def handle_message(event):
         # reply_text = "".join(["for X=",''.join(map(str,Xactual))])
     '''
     else:  # 如果非以上的選項，就會學你說話
-        print(">>>>>>>>>> 出題1: text = ",text)
-        try:
-            V = int(text)
-            Xactual = list(map(int, list(text)))
-            print(">>>>>>>>>> 出題2: Xactual = ",text)
-            reply_text = "".join(["設定 X=",text])
-        except ValueError:
-            Xstr = ''.join(map(str,Xactual))
-            reply_text = "".join([text, "沒有該功能，輸入“H”可查看我能做什麼"]) 
+#        print(">>>>>>>>>> 出題1: text = ",text)
+#        try:
+#            V = int(text)
+#            Xactual = list(map(int, list(text)))
+#            print(">>>>>>>>>> 出題2: Xactual = ",text)
+#            reply_text = "".join(["設定 X=",text])
+#      except ValueError:
+#           Xstr = ''.join(map(str,Xactual))
+        reply_text = "".join([text, "沒有該功能，輸入“H”可查看我能做什麼"]) 
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
 
