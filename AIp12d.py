@@ -152,9 +152,10 @@ def handle_message(event):
     elif(text=="早餐"):    reply_text = "好的，請問早餐花費多少錢？"
     elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
     elif(text=="晚餐"):    reply_text = "好的，請問晚餐花費多少錢？"
-    elif(test=="我花了多少錢") reply_text = "".join(["你花了 ",money]) 
-    elif(is_number(test)): 
-        money = moeny + int(test)
+    elif(text=="我花了多少錢"): 
+        reply_text = "".join(["你花了 ",money]) 
+    elif(is_number(text)): 
+        money = money + int(text)
         reply_text = "花費已紀錄"
 
     else:  # 如果非以上的選項，就會學你說話
