@@ -162,7 +162,7 @@ def handle_message(event):
         reply_text = "花費已紀錄"
 
     else:  # 如果非以上的選項，就會學你說話
-        reply_text = "".join([text, "，沒有該功能，輸入“H”可查看我能做什麼"]) 
+        reply_text = "".join([text, "\n沒有該功能，可以輸入“介紹”或“H”查看我能做什麼"]) 
     '''
     elif(text=="舉例"):    
         print(">>>>>>>>>> 舉例1")
