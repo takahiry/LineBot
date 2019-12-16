@@ -156,7 +156,7 @@ def handle_message(event):
         money = 0
         reply_text = "已清空你的花費！"
     elif(text=="我花了多少錢"): 
-        reply_text = "".join(["你花了 ",str(money)]) 
+        reply_text = "你花了 " + str(money)
     elif(is_number(text)): 
         money = money + int(text)
         reply_text = "花費已紀錄"
