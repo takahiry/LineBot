@@ -158,7 +158,7 @@ def handle_message(event):
         reply_text = "已清空你的花費！"
     elif(text=="我花了多少錢"): 
         try:
-            reply_text = "你花了 " + str(money)
+            reply_text = "你花了 " + str(money) + type(money)
         except:
             reply_text = "抱歉，這個問題有點尷尬，麻煩你再問一次"
     elif(is_number(text)): 
