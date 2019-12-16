@@ -137,7 +137,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 #   global Xactual
-    money = 0 
+    global money 
     print(event)
     if event.message.id == "100001":
         return
