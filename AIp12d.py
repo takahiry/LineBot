@@ -138,7 +138,6 @@ def callback():
 def handle_message(event):
 #   global Xactual
     global money 
-    money = 0
     print(event)
     if event.message.id == "100001":
         return
