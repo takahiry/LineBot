@@ -105,6 +105,7 @@ def judgeX(X,Xactual):      #-- judge (nA,nB) of X
 '''
 ###=== (5.2) 設定對話(kk,openF,answerF) ===###
 #Xactual = np.array([1,2,3,4])  
+money = 0 
 openF1 = "歡迎加入 AB 遊戲: 猜測四個相異的 0-9數字。A 表示數字對，而且位置也對；B 表示數字對，但位置不對。" 
 openF2 = "來出個 四個0-9數字 的題目!!"                              #-- openF: 會話啟始(opening)
 app = Flask(__name__)  # __name__ 代表目前執行的模組
@@ -137,7 +138,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 #   global Xactual
-    money = 0
+    global money
     print(event)
     if event.message.id == "100001":
         return
