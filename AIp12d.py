@@ -137,7 +137,7 @@ def callback():
 
 def time():
     my_hour = 21
-    my_minute = 30
+    my_minute = 35
 
     while True:
         current_time = time.strftime('%H:%M', time.localtime())
@@ -147,12 +147,11 @@ def time():
             line_bot_api.push_message('Ub432d082a6d2b42bc2b80866b6da3517',TextSendMessage(text='helloworld!'))
         break
 
-time()
-
 ###=== (5.5) 處理訊息  ===###
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 #   global Xactual
+    time()
     global money
     print(event)
     if event.message.id == "100001":
