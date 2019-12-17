@@ -40,6 +40,7 @@ from linebot import ( LineBotApi, WebhookHandler )
 from linebot.exceptions import( InvalidSignatureError )
 from linebot.models import *    
 from flask import Flask, request, abort #---------- 下述是加入 ABgame
+import time
 
 def is_number(s):
     try:
@@ -134,7 +135,19 @@ def callback():
         abort(400)
     return 'OK'
 
-line_bot_api.push_message('Ub432d082a6d2b42bc2b80866b6da3517',TextSendMessage(text='helloworld!'))
+def time():
+    my_hour = 21
+    my_minute = 30
+
+    while True:
+        current_time = time.strftime('%H:%M', time.localtime())
+        now = current_time.split(':')
+
+        if my_hour == now[0] and my_minute == now[1]:
+            line_bot_api.push_message('Ub432d082a6d2b42bc2b80866b6da3517',TextSendMessage(text='helloworld!'))
+        break
+
+time()
 
 ###=== (5.5) 處理訊息  ===###
 @handler.add(MessageEvent, message=TextMessage)
