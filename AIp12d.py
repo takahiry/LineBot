@@ -134,6 +134,7 @@ def callback():
         abort(400)
     return 'OK'
 
+line_bot_api.push_message(Ub432d082a6d2b42bc2b80866b6da3517,TextSendMessage(text='helloworld!'))
 ###=== (5.5) 處理訊息  ===###
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -154,7 +155,6 @@ def handle_message(event):
     elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
     elif(text=="晚餐"):    reply_text = "好的，請問晚餐花費多少錢？"
     elif(text=="清空"):
-        global money
         money = 0
         reply_text = "已清空你的花費！"
     elif(text=="我花了多少錢"): 
