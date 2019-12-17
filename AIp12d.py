@@ -154,6 +154,7 @@ def handle_message(event):
     elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
     elif(text=="晚餐"):    reply_text = "好的，請問晚餐花費多少錢？"
     elif(text=="清空"):
+        global money
         money = 0
         reply_text = "已清空你的花費！"
     elif(text=="我花了多少錢"): 
