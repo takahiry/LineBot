@@ -143,7 +143,6 @@ def handle_message(event):
     image_url = "https://truth.bahamut.com.tw/s01/201911/d9070fa2ada92aefcee3530e05fdd486.JPG"
     user_id = event.source.user_id
 
-    line_bot_api.push_message(user_id, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
 #    line_bot_api.push_message("Ub432d082a6d2b42bc2b80866b6da3517", ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
 #    line_bot_api.push_message("Ub432d082a6d2b42bc2b80866b6da3517", TextSendMessage(text='Hiiii！你吃完午餐了嗎！該紀錄花費咯！'))
     conversation = random.randint(1, 5) ;
@@ -177,9 +176,9 @@ def handle_message(event):
             reply_text = "抱歉，這個問題有點尷尬，麻煩你再問一次"
     elif(is_number(text)): 
         try:
+            line_bot_api.push_message(user_id, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
             money = money + int(text)
             reply_text = "花費已紀錄"
-            ImageSendMessage(original_content_url=image_url, preview_image_url=image_url)
             if ( money >= 300 ) : 
                 reply_text = reply_text + "，今天你的花費有點多了喔！" + "你今天已經花了 " + str(money)
 #            message1 = ImageSendMessage(original_content_url=image_url, preview_image_url=image_url)
