@@ -160,7 +160,7 @@ def handle_message(event):
 
     elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
     elif(text=="晚餐"):    reply_text = "好的，請問晚餐花費多少錢？"
-    elif(text=="其他花費") reply_text = "好的，請問花了多少錢？"
+    elif(text=="其他花費"): reply_text = "好的，請問花了多少錢？"
     elif(text=="清空"):
         money = 0
         reply_text = "已清空你的花費！"
@@ -173,7 +173,7 @@ def handle_message(event):
         try:
             money = money + int(text)
             reply_text = "花費已紀錄"
-            if ( money >= 300 )
+            if ( money >= 300 ) : 
                 reply_text = reply_text + "今天你的花費有點多了喔！"
         except:
             reply_text = "紀錄花費異常！請重新輸入！"
