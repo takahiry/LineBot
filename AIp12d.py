@@ -138,7 +138,6 @@ def callback():
 ###=== (5.5) 處理訊息  ===###
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    timerr()
 #   global Xactual
     global money
     conversation = random.randint(1, 5) ;
