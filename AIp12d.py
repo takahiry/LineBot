@@ -135,24 +135,13 @@ def callback():
         abort(400)
     return 'OK'
 
-def timerr():
-    my_hour = 21
-    my_minute = 40
-
-    while True:
-        current_time = time.strftime('%H:%M', time.localtime())
-        now = current_time.split(':')
-
-        if my_hour == now[0] and my_minute == now[1]:
-            line_bot_api.push_message('Ub432d082a6d2b42bc2b80866b6da3517',TextSendMessage(text='helloworld!'))
-        break
-
 ###=== (5.5) 處理訊息  ===###
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     timerr()
 #   global Xactual
     global money
+    conversation = random.randint(1, 5) ;
     print(event)
     if event.message.id == "100001":
         return
@@ -164,7 +153,12 @@ def handle_message(event):
     elif(text.upper()=="H"):    
         reply_text = "我能幫你記帳！\n請回覆要紀錄的內容（如早餐、午餐、晚餐等）\n或回覆“清空”來清空花費！\n或回覆“我花了多少錢”來查看你的花費\n在紀錄前記得輸入“清空”先初始化花費喔！"
     elif(text=="介紹"):    reply_text = "我能幫你記帳！\n請回覆要紀錄的內容（如早餐、午餐、晚餐等）\n回覆“清空”來清空花費！\n或回覆“我花了多少錢”來查看你的花費\n在紀錄前記得輸入“清空”先初始化花費喔！"
-    elif(text=="早餐"):    reply_text = "好的，請問早餐花費多少錢？"
+    elif(text=="早餐" and conversation == 1):    reply_text = "好的，請問早餐花費多少錢？"
+    elif(text=="早餐" and conversation == 2):    reply_text = "那早餐花了多少錢？"
+    elif(text=="早餐" and conversation == 3):    reply_text = "cool，能問早餐花費多少錢嗎？"
+    elif(text=="早餐" and conversation == 4):    reply_text = "是難得的早餐！請問早餐花費多少錢？"
+    elif(text=="早餐" and conversation == 5):    reply_text = "健康的一天喔，請問早餐花費多少？"
+
     elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
     elif(text=="晚餐"):    reply_text = "好的，請問晚餐花費多少錢？"
     elif(text=="清空"):
