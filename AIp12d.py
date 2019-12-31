@@ -150,8 +150,8 @@ def handle_message(event):
     elif(text=="機器人"):  reply_text = "有！我是機器人，在喔！"
     elif(text=="你好"):    reply_text = "你好啊..."
     elif(text.upper()=="H"):    
-        reply_text = "我能幫你記帳！\n請回覆要紀錄的內容（如早餐、午餐、晚餐等）\n或回覆“清空”來清空花費！\n或回覆“我花了多少錢”來查看你的花費\n在紀錄前記得輸入“清空”先初始化花費喔！"
-    elif(text=="介紹"):    reply_text = "我能幫你記帳！\n請回覆要紀錄的內容（如早餐、午餐、晚餐等）\n回覆“清空”來清空花費！\n或回覆“我花了多少錢”來查看你的花費\n在紀錄前記得輸入“清空”先初始化花費喔！"
+        reply_text = "我能幫你記帳！\n請回覆要紀錄的內容（早餐、午餐、晚餐和其他）\n或回覆“清空”來清空花費！\n或回覆“我花了多少錢”來查看你的花費\n在紀錄前記得輸入“清空”先初始化花費喔！"
+    elif(text=="介紹"):    reply_text = "我能幫你記帳！\n請回覆要紀錄的內容（早餐、午餐、晚餐和其他）\n回覆“清空”來清空花費！\n或回覆“我花了多少錢”來查看你的花費\n在紀錄前記得輸入“清空”先初始化花費喔！"
     elif(text=="早餐" and conversation == 1):    reply_text = "好的，請問早餐花費多少錢？"
     elif(text=="早餐" and conversation == 2):    reply_text = "那早餐花了多少錢？"
     elif(text=="早餐" and conversation == 3):    reply_text = "cool，能問早餐花費多少錢嗎？"
@@ -160,6 +160,7 @@ def handle_message(event):
 
     elif(text=="午餐"):    reply_text = "好的，請問午餐花費多少錢？"
     elif(text=="晚餐"):    reply_text = "好的，請問晚餐花費多少錢？"
+    elif(text=="其他花費") reply_text = "好的，請問花了多少錢？"
     elif(text=="清空"):
         money = 0
         reply_text = "已清空你的花費！"
@@ -172,6 +173,8 @@ def handle_message(event):
         try:
             money = money + int(text)
             reply_text = "花費已紀錄"
+            if ( money >= 300 )
+                reply_text = reply_text + "今天你的花費有點多了喔！"
         except:
             reply_text = "紀錄花費異常！請重新輸入！"
     else:  # 如果非以上的選項，就會學你說話
