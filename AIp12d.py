@@ -179,6 +179,8 @@ def handle_message(event):
             ImageSendMessage(original_content_url=image_url, preview_image_url=image_url)
             if ( money >= 300 ) : 
                 reply_text = reply_text + "，今天你的花費有點多了喔！" + "你今天已經花了 " + str(money)
+            message = ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
+            line_bot_api.reply_message(event.reply_token, message)
         except:
             reply_text = "紀錄花費異常！請重新輸入！"
     else:  # 如果非以上的選項，就會學你說話
@@ -226,6 +228,7 @@ def handle_message(event):
 #            reply_text = "".join(["設定 X=",text])
 #      except ValueError:
 #           Xstr = ''.join(map(str,Xactual))
+
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
 
