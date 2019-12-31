@@ -140,7 +140,10 @@ def callback():
 def handle_message(event):
 #   global Xactual
     global money
-    line_bot_api.push_message("Ub432d082a6d2b42bc2b80866b6da3517", TextSendMessage(text='Hiiii！你吃完午餐了嗎！該紀錄花費咯！'))
+    image_url = "https://truth.bahamut.com.tw/s01/201911/d9070fa2ada92aefcee3530e05fdd486.JPG"
+
+    line_bot_api.push_message("Ub432d082a6d2b42bc2b80866b6da3517", ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
+#    line_bot_api.push_message("Ub432d082a6d2b42bc2b80866b6da3517", TextSendMessage(text='Hiiii！你吃完午餐了嗎！該紀錄花費咯！'))
     conversation = random.randint(1, 5) ;
     print(event)
     if event.message.id == "100001":
