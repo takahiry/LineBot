@@ -174,7 +174,7 @@ def handle_message(event):
             money = money + int(text)
             reply_text = "花費已紀錄"
             if ( money >= 300 ) : 
-                reply_text = reply_text + "，今天你的花費有點多了喔！" + "你今天已經花了 " +money
+                reply_text = reply_text + "，今天你的花費有點多了喔！" + "你今天已經花了 " + str(money)
         except:
             reply_text = "紀錄花費異常！請重新輸入！"
     else:  # 如果非以上的選項，就會學你說話
