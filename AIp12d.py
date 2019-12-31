@@ -174,7 +174,9 @@ def handle_message(event):
             reply_text = "你花了 " + str(money)
         except:
             reply_text = "抱歉，這個問題有點尷尬，麻煩你再問一次"
-    elif(text=="我就是爛"): line_bot_api.push_message(user_id, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
+    elif(text=="我就是爛"): 
+        line_bot_api.push_message(user_id, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
+        reply_text = "你就是爛"
     elif(is_number(text)): 
         try:
             line_bot_api.push_message(user_id, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
