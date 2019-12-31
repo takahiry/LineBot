@@ -40,7 +40,7 @@ from linebot import ( LineBotApi, WebhookHandler )
 from linebot.exceptions import( InvalidSignatureError )
 from linebot.models import *    
 from flask import Flask, request, abort #---------- 下述是加入 ABgame
-import time 
+import random
 
 def is_number(s):
     try:
