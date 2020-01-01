@@ -221,7 +221,6 @@ def handle_message(event):
         reply_text = "你就是爛"
     elif(text=="選單"): 
         line_bot_api.push_message(user_id, TemplateSendMessage(alt_text="Template Example", template=button_template_message))
-        reply_text == "成功"
     elif(is_number(text)): 
         try:
             line_bot_api.push_message(user_id, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
