@@ -166,6 +166,9 @@ def handle_message(event):
                                 MessageTemplateAction(
                                     label='紀錄晚餐花費', text='晚餐'
                                 ),
+                                MessageTemplateAction(
+                                    label='查看我的花費', text='我花了多少錢'
+                                ),
                                 '''
                                 MessageTemplateAction(
                                     label='紀錄其他花費', text='其他'
