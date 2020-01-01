@@ -166,12 +166,14 @@ def handle_message(event):
                                 MessageTemplateAction(
                                     label='紀錄晚餐花費', text='晚餐'
                                 ),
+                                '''
                                 MessageTemplateAction(
                                     label='紀錄其他花費', text='其他'
                                 ),
                                 MessageTemplateAction(
                                     label='查看花費', text='我花了多少錢'
                                 ),
+'''
 '''
                                 URITemplateAction(
                                     label='uri可回傳網址', uri='http://www.xiaosean.website/'
