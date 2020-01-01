@@ -143,6 +143,32 @@ def handle_message(event):
     image_url = "https://truth.bahamut.com.tw/s01/201911/d9070fa2ada92aefcee3530e05fdd486.JPG"
     user_id = event.source.user_id
 
+    button_template_message =ButtonsTemplate(
+#                            thumbnail_image_url="https://i.imgur.com/eTldj2E.png?1",
+                            thumbnail_image_url="https://truth.bahamut.com.tw/s01/201911/d9070fa2ada92aefcee3530e05fdd486.JPG",
+                            title='Menu', 
+                            text='Please select',
+                            ratio="1.51:1",
+                            image_size="cover",
+                            actions=[
+#                                PostbackTemplateAction 點擊選項後，
+#                                 除了文字會顯示在聊天室中，
+#                                 還回傳data中的資料，可
+#                                 此類透過 Postback event 處理。
+                                PostbackTemplateAction(
+                                    label='postback還會回傳data參數', 
+                                    text='postback text',
+                                    data='action=buy&itemid=1'
+                                ),
+                                MessageTemplateAction(
+                                    label='message會回傳text文字', text='message text'
+                                ),
+                                URITemplateAction(
+                                    label='uri可回傳網址', uri='http://www.xiaosean.website/'
+                                )
+                            ]
+                        )
+
 #    line_bot_api.push_message("Ub432d082a6d2b42bc2b80866b6da3517", ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
 #    line_bot_api.push_message("Ub432d082a6d2b42bc2b80866b6da3517", TextSendMessage(text='Hiiii！你吃完午餐了嗎！該紀錄花費咯！'))
     conversation = random.randint(1, 5) ;
@@ -177,6 +203,9 @@ def handle_message(event):
     elif(text=="我就是爛"): 
         line_bot_api.push_message(user_id, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
         reply_text = "你就是爛"
+    elif(text=="選單"): 
+        line_bot_api.push_message(user_id, TemplateSendMessage(alt_text="Template Example", template=button_template_message))
+        reply_text == "成功"
     elif(is_number(text)): 
         try:
             line_bot_api.push_message(user_id, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
