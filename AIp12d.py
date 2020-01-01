@@ -146,8 +146,8 @@ def handle_message(event):
     button_template_message =ButtonsTemplate(
 #                            thumbnail_image_url="https://i.imgur.com/eTldj2E.png?1",
                             thumbnail_image_url="https://truth.bahamut.com.tw/s01/201911/d9070fa2ada92aefcee3530e05fdd486.JPG",
-                            title='種類', 
-                            text='你想紀錄什麼花費',
+                            title='Menu', 
+                            text='Please select',
                             ratio="1.51:1",
                             image_size="cover",
                             actions=[
@@ -156,16 +156,27 @@ def handle_message(event):
 #                                 還回傳data中的資料，可
 #                                 此類透過 Postback event 處理。
                                 PostbackTemplateAction(
-                                    label='早餐', 
+                                    label='紀錄早餐花費', 
                                     text='早餐',
                                     data='action=buy&itemid=1'
                                 ),
                                 MessageTemplateAction(
-                                    label='午餐', text='午餐'
+                                    label='紀錄午餐花費', text='午餐'
                                 ),
+                                MessageTemplateAction(
+                                    label='紀錄晚餐花費', text='晚餐'
+                                ),
+                                MessageTemplateAction(
+                                    label='紀錄其他花費', text='其他'
+                                ),
+                                MessageTemplateAction(
+                                    label='查看花費', text='我花了多少錢'
+                                ),
+'''
                                 URITemplateAction(
                                     label='uri可回傳網址', uri='http://www.xiaosean.website/'
                                 )
+'''
                             ]
                         )
 
